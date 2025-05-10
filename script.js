@@ -137,7 +137,7 @@ function calculateLocalResult(finalMessage) {
   if (interestSignals / 3 >= 4) adjustments += 10;
   if (interestSignals / 3 <= 2) adjustments -= 15;
   
-  // Good relationship is necessary
+ // Good relationship is necessary
   if (relationshipStrength / 3 >= 4) adjustments += 5;
   if (relationshipStrength / 3 <= 2) adjustments -= 10;
   
@@ -175,63 +175,25 @@ function calculateLocalResult(finalMessage) {
 
 // Generates personalized advice based on scores
 function generateAdvice(percentage, interestSignals, relationshipStrength, mutualityScore) {
+  // The parameters interestSignals, relationshipStrength, mutualityScore are no longer used
+  // directly in this version of advice generation but are kept for compatibility with calculateLocalResult
+  // if calculateLocalResult's logic isn't also being completely overhauled for its scoring.
+  // The new advice is solely based on the final percentage.
+
   let advice = '';
-  const avgInterestSignal = interestSignals / 3;
-  const avgRelationship = relationshipStrength / 3;
-  const avgMutuality = mutualityScore / 3;
-  
-  if (percentage < 30) {
-    advice = `${crushName}님과의 관계를 더 발전시키는 것이 고백 전에 필요해 보입니다. `;
-    
-    if (avgInterestSignal < 3) {
-      advice += `현재로서는 상대방의 관심 신호가 충분히 보이지 않습니다. `;
-    }
-    
-    if (avgRelationship < 3) {
-      advice += `서로 더 많은 시간을 보내며 친밀도를 높여보세요. `;
-    }
-    
-    advice += `천천히 친분을 쌓아가는 것이 좋겠습니다.`;
-  } else if (percentage < 60) {
-    advice = `가능성이 있지만 확신을 갖기에는 아직 이릅니다. `;
-    
-    if (avgInterestSignal >= 3) {
-      advice += `관심을 보이는 긍정적인 신호가 있지만, `;
-    }
-    
-    if (avgRelationship < 4) {
-      advice += `${crushName}님과 더 많은 개인적인 시간을 보내보세요. `;
-    }
-    
-    if (avgMutuality < 3) {
-      advice += `서로의 가치관과 생각을 더 알아가는 시간이 필요합니다. `;
-    }
-    
-    advice += `조금 더 시간을 두고 관계를 발전시켜 보세요.`;
-  } else if (percentage < 80) {
-    advice = `좋은 신호들이 많이 보입니다! `;
-    
-    if (avgInterestSignal >= 4) {
-      advice += `${crushName}님이 당신에게 특별한 관심을 보이고 있어요. `;
-    }
-    
-    if (avgRelationship >= 4) {
-      advice += `이미 충분한 친밀감이 형성되어 있습니다. `;
-    }
-    
-    advice += `적절한 타이밍과 편안한 분위기에서 솔직한 마음을 전해보세요.`;
-  } else {
-    advice = `매우 긍정적인 신호들이 많습니다! `;
-    
-    if (avgInterestSignal >= 4 && avgRelationship >= 4) {
-      advice += `${crushName}님도 당신에게 특별한 감정을 가지고 있을 가능성이 큽니다. `;
-    }
-    
-    if (avgMutuality >= 4) {
-      advice += `서로에 대한 이해와 공감대가 잘 형성되어 있어요. `;
-    }
-    
-    advice += `자신감을 가지고 진심을 전할 적절한 순간을 선택해보세요!`;
+
+  if (percentage <= 19) {
+    advice = `"${crushName}님이 널 사람 대하는 것만으로 감사해야 할 수준이야. 착각 그만해 제발." → (존재 인정 정도지 호감 아님)`;
+  } else if (percentage <= 39) {
+    advice = `"약간은 친절하지. 근데 그건 그냥 매너지, 너라서 그런 건 아닐 수도 있어." → (희망 과몰입 금지)`;
+  } else if (percentage <= 59) {
+    advice = `"살짝 미세한 가능성 있음. 근데 네가 먼저 들이대면 바로 흥미 잃을 각이다." → (굳이 티내면 역효과)`;
+  } else if (percentage <= 79) {
+    advice = `"어? 이건 좀 되겠다. 근데 너만 잘하면 됨. 어설픈 티 내지 마, 분위기 망친다." → (너한테 달렸음)`;
+  } else if (percentage <= 94) {
+    advice = `"이건 솔직히 반은 넘어왔다. 근데 질질 끌다가 타이밍 놓치면 바보 인증이야." → (가자. 진짜 지금이야)`;
+  } else { // 95-100%
+    advice = `"상대가 너한테 호감 있는 건 확실함. 근데 너가 고백 안 하면 내가 화낸다 진짜." → (이건 거의 도전 안 하면 손해)`;
   }
   
   return advice;

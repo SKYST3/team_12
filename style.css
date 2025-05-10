@@ -29,17 +29,19 @@ body {
 
 .page.active {
   display: block;
-  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.9); */ /* Removed for individual page backgrounds */
 }
 
 .start-page {
-  background-color: white;
+  /* background-color: white; */
+  background: linear-gradient(135deg, #ff69b4, #4169e1);
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px; /* Adjusted padding */
+  color: black; /* Default text color for start page - Changed to black */
 }
 
 .question-bubble {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
   border-radius: 20px;
   padding: 15px;
   margin: 0px auto;
@@ -49,8 +51,9 @@ body {
   text-align: center;
   border-left: auto;
   border-right: auto;
-  width: 50%;
-  
+  width: 80%; /* Adjusted width for better fit */
+  color: black; /* Text color - Changed to black */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Slight text shadow for readability */
 }
 
 .start-illustration {
@@ -61,13 +64,16 @@ body {
 
 .percentage {
   font-size: 48px;
-  color: #7ac5ea;
+  /* color: #7ac5ea; */
+  color: black; /* Changed to black */
   margin: 30px 0;
   font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Text shadow for readability */
 }
 
 .start-button {
-  background-color: #7ac5ea;
+  /* background-color: #7ac5ea; */
+  background-color: white; /* Changed to white */
   color: black;
   font-weight: bold;
   font-size: 24px;
@@ -100,7 +106,7 @@ body {
 
 .question-page {
   background-color: #f0f8ff;
-  padding: 20px;
+  padding: 80px 20px; /* Further increased vertical padding */
   text-align: center;
 }
 
@@ -112,10 +118,27 @@ body {
 
 .option-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 15px;
   margin: 40px 0;
+}
+
+.option-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px; /* Space between circle and label */
+  min-width: 60px; /* Ensure some minimum width for alignment */
+}
+
+.option-label {
+  font-size: 12px;
+  color: #333; /* Dark grey color for the label text */
+  font-family: 'Nanum Myeongjo', serif; /* Ensure font consistency */
+  white-space: nowrap; /* Prevent labels from wrapping if possible, adjust min-width if needed */
 }
 
 .option {
@@ -152,7 +175,7 @@ body {
 
 .option-5 {
   border: 1px solid #333;
-  background-color: #333;
+  background-color: #696969;
 }
 
 .option.selected {
@@ -250,10 +273,14 @@ body {
 
 .note {
   font-size: 14px;
+  color: #E6E6FA; /* Light color for notes, consistent with other pages */
   margin-top: 10px;
-  color: #E6E6FA;
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Specific note color for start page for better visibility */
+.start-page .note {
+  color: black; /* Changed to black */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 /* Result styling */
