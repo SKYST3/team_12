@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+body {
+  font-family: 'Nanum Myeongjo', serif;
+  padding: 0;
+  margin: 0;
+  background: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  display: none;
+  width: 100%;
+  transition: background-color 1s ease-in-out;
+}
+
+.page.active {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.start-page {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.question-bubble {
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 0px auto;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-left: auto;
+  border-right: auto;
+  width: 50%;
+  
+}
+
+.start-illustration {
+  width: 100%;
+  max-width: 280px;
+  margin: 20px auto;
+}
+
+.percentage {
+  font-size: 48px;
+  color: #7ac5ea;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+.start-button {
+  background-color: #7ac5ea;
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block !important;
+  text-decoration: none;
+  margin: 20px auto !important;
+  text-align: center;
+}
+
+/* 버튼 기본 스타일 */
+.next-button {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block !important;
+  width: 80%;
+  max-width: 300px;
+  margin: 30px auto !important;
+  text-align: center;
+}
+
+.question-page {
+  background-color: #f0f8ff;
+  padding: 20px;
+  text-align: center;
+}
+
+.question-number {
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+.option {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.option:hover {
+  transform: scale(1.1);
+}
+
+.option-1 {
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.option-2 {
+  border: 1px solid #ddd;
+  background-color: #ddd;
+}
+
+.option-3 {
+  border: 1px solid #bbb;
+  background-color: #bbb;
+}
+
+.option-4 {
+  border: 1px solid #999;
+  background-color: #999;
+}
+
+.option-5 {
+  border: 1px solid #333;
+  background-color: #333;
+}
+
+.option.selected {
+  border: 3px solid #7ac5ea;
+}
+
+/* 이름 입력 페이지 배경 스타일 */
+.name-input-page,
+.final-page,
+#page-result {
+  background: linear-gradient(135deg, #ff69b4, #4169e1);
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: #E6E6FA;
+}
+
+.input-label {
+  color: #E6E6FA;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.name-input {
+  width: 90%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  margin: 20px auto;
+  text-align: center;
+  display: block;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #333;
+  overflow: hidden;
+}
+
+.name-input::placeholder {
+  color: #999;
+}
+
+.final-message {
+  width: 90%;
+  height: 120px;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  margin: 20px auto;
+  display: block;
+  color: #333;
+}
+
+.final-message::placeholder {
+  color: #999;
+}
+
+.result-message {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px auto;
+  width: 90%;
+  text-align: center;
+  white-space: pre-wrap;
+  font-size: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+/* Loading spinner */
+.loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin: 20px auto;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.note {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #E6E6FA;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Result styling */
+.result-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #E6E6FA;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  color: #d81b60;
+}
+
+input[type="number"] {
+  width: 50px;
+  margin-left: 10px;
+}
+
+#questionForm {
+  margin-top: 20px;
+}
+
+#result {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+/* Center alignment for all content */
+.container, .page, .start-page, .name-input-page, .question-page, .final-page, 
+.input-label, .question-bubble, .percentage, .result-container, .result-message,
+.name-input, .final-message, .note, h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Make sure blocks that need to be center-aligned have display: block */
+.name-input, .final-message, .next-button, .result-container, .result-message {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Center the SVG illustration */
+.start-illustration {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Ensure text inputs have centered text */
+.name-input, .final-message, input, textarea {
+  text-align: center !important;
+}
+
+/* Center placeholder text */
+::placeholder {
+  text-align: center;
+}
+
+/* 밤하늘 배경 스타일 */
+.night-sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
+  z-index: -1;
+  transition: opacity 1s ease-in-out;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* 떨어지는 원 효과 */
+.falling-circle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: falling 3s linear infinite;
+}
+
+@keyframes falling {
+  0% {
+    transform: translateY(-100%) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+/* 입력 칸에서 나타나는 원 효과 */
+.input-circle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: expand 1s ease-out forwards;
+  transform-origin: center;
+  z-index: 1;
+}
+
+@keyframes expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 이름 입력 페이지의 다른 요소들이 원 위에 보이도록 */
+.name-input-page .input-label,
+.name-input-page .note,
+.name-input-page .next-button {
+  position: relative;
+  z-index: 2;
+}
+
+/* 결과 페이지의 퍼센트 표시 스타일 */
+#page-result .percentage {
+  color: #E6E6FA;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+}

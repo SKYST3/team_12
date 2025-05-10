@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사랑 고백 성공 예측기</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="night-sky" id="nightSky"></div>
+  <div class="container">
+    <!-- Start Page -->
+    <div class="page start-page active" id="page-start">
+      <div class="question-bubble">
+        나의 그대에게,<br> 나에게 마음이 있나요?
+      </div>
+      <div class="start-illustration">
+        <!-- SVG illustration instead of external image -->
+        <svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto; display: block;">
+          <!-- Background -->
+          <rect x="20" y="20" width="240" height="240" fill="white" stroke="#ddd" stroke-width="1"/>
+          
+          <!-- Person - centered position -->
+          <g transform="translate(50, 30)">
+            <!-- Hair -->
+            <path d="M90,40 C120,40 130,90 130,110 L130,170 C130,180 120,190 110,190 L70,190 C60,190 50,180 50,170 L50,110 C50,90 60,40 90,40 Z" fill="#8B5A3C"/>
+            
+            <!-- Face -->
+            <ellipse cx="90" cy="120" rx="40" ry="50" fill="#F2C4B3"/>
+            
+            <!-- Eyes -->
+            <ellipse cx="75" cy="110" rx="5" ry="5" fill="#523D35"/>
+            <ellipse cx="105" cy="110" rx="5" ry="5" fill="#523D35"/>
+            
+            <!-- Eyebrows -->
+            <path d="M70,95 C75,93 80,93 85,95" stroke="#523D35" stroke-width="2" fill="none"/>
+            <path d="M95,95 C100,93 105,93 110,95" stroke="#523D35" stroke-width="2" fill="none"/>
+            
+            <!-- Blush -->
+            <ellipse cx="65" cy="125" rx="10" ry="5" fill="#E88C96" opacity="0.5"/>
+            <ellipse cx="115" cy="125" rx="10" ry="5" fill="#E88C96" opacity="0.5"/>
+            
+            <!-- Nose -->
+            <ellipse cx="90" cy="125" rx="5" ry="3" fill="#F2C4B3" stroke="#DEBA9D" stroke-width="1"/>
+            
+            <!-- Mouth -->
+            <ellipse cx="90" cy="145" rx="3" ry="3" fill="#523D35"/>
+            
+            <!-- Hand -->
+            <path d="M80,170 C85,160 90,155 97,158 L97,190 L80,190 Z" fill="#F2C4B3"/>
+            <path d="M97,158 L97,190" stroke="#DEBA9D" stroke-width="1" fill="none"/>
+            
+            <!-- Body/Clothing -->
+            <path d="M50,190 L50,220 L130,220 L130,190 Z" fill="#FFCC80"/>
+            <path d="M90,190 L90,210" stroke="#E5B870" stroke-width="2" fill="none"/>
+          </g>
+        </svg>
+      </div>
+      <div class="percentage">??%</div>
+      <div class="note">고백해도 될 확률, 계산해드립니다</div>
+      <button class="start-button" onclick="nextPage('page-start', 'page-name')">start!</button>
+    </div>
+
+    <!-- Name Input Page -->
+    <div class="page name-input-page" id="page-name">
+      <div class="input-label">마음에 둔 사람의<br>이름을 입력해주세요.</div>
+      <input type="text" class="name-input" id="crushName" placeholder="예: 홍길동">
+      <div class="note">입력하신 이름은 질문과 결과에서 등장합니다.</div>
+      <button class="next-button" onclick="saveName(); nextPage('page-name', 'page-q1')">next!</button>
+    </div>
+
+    <!-- Question Pages -->
+    <div class="page question-page" id="page-q1">
+      <div class="question-number">1. 나는 이 도전을 진짜 하고싶다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(1, 1)"></div>
+        <div class="option option-2" onclick="selectOption(1, 2)"></div>
+        <div class="option option-3" onclick="selectOption(1, 3)"></div>
+        <div class="option option-4" onclick="selectOption(1, 4)"></div>
+        <div class="option option-5" onclick="selectOption(1, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(1, 2)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q2">
+      <div class="question-number">2. <span class="crush-name"></span>님은 나에게 관심이 있는 것 같다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(2, 1)"></div>
+        <div class="option option-2" onclick="selectOption(2, 2)"></div>
+        <div class="option option-3" onclick="selectOption(2, 3)"></div>
+        <div class="option option-4" onclick="selectOption(2, 4)"></div>
+        <div class="option option-5" onclick="selectOption(2, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(2, 3)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q3">
+      <div class="question-number">3. 우리는 자주 연락하고 대화한다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(3, 1)"></div>
+        <div class="option option-2" onclick="selectOption(3, 2)"></div>
+        <div class="option option-3" onclick="selectOption(3, 3)"></div>
+        <div class="option option-4" onclick="selectOption(3, 4)"></div>
+        <div class="option option-5" onclick="selectOption(3, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(3, 4)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q4">
+      <div class="question-number">4. <span class="crush-name"></span>님은 나와 개인적인 시간을 보내려고 한다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(4, 1)"></div>
+        <div class="option option-2" onclick="selectOption(4, 2)"></div>
+        <div class="option option-3" onclick="selectOption(4, 3)"></div>
+        <div class="option option-4" onclick="selectOption(4, 4)"></div>
+        <div class="option option-5" onclick="selectOption(4, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(4, 5)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q5">
+      <div class="question-number">5. <span class="crush-name"></span>님은 나에게 특별한 관심을 보인다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(5, 1)"></div>
+        <div class="option option-2" onclick="selectOption(5, 2)"></div>
+        <div class="option option-3" onclick="selectOption(5, 3)"></div>
+        <div class="option option-4" onclick="selectOption(5, 4)"></div>
+        <div class="option option-5" onclick="selectOption(5, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(5, 6)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q6">
+      <div class="question-number">6. <span class="crush-name"></span>님은 내 이야기에 적극적으로 반응한다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(6, 1)"></div>
+        <div class="option option-2" onclick="selectOption(6, 2)"></div>
+        <div class="option option-3" onclick="selectOption(6, 3)"></div>
+        <div class="option option-4" onclick="selectOption(6, 4)"></div>
+        <div class="option option-5" onclick="selectOption(6, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(6, 7)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q7">
+      <div class="question-number">7. 다른 사람들도 우리가 잘 어울린다고 말한다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(7, 1)"></div>
+        <div class="option option-2" onclick="selectOption(7, 2)"></div>
+        <div class="option option-3" onclick="selectOption(7, 3)"></div>
+        <div class="option option-4" onclick="selectOption(7, 4)"></div>
+        <div class="option option-5" onclick="selectOption(7, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(7, 8)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q8">
+      <div class="question-number">8. <span class="crush-name"></span>님은 내가 다른 사람과 이야기할 때 관심을 보인다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(8, 1)"></div>
+        <div class="option option-2" onclick="selectOption(8, 2)"></div>
+        <div class="option option-3" onclick="selectOption(8, 3)"></div>
+        <div class="option option-4" onclick="selectOption(8, 4)"></div>
+        <div class="option option-5" onclick="selectOption(8, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(8, 9)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q9">
+      <div class="question-number">9. 우리는 서로의 취미나 관심사에 대해 잘 알고 있다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(9, 1)"></div>
+        <div class="option option-2" onclick="selectOption(9, 2)"></div>
+        <div class="option option-3" onclick="selectOption(9, 3)"></div>
+        <div class="option option-4" onclick="selectOption(9, 4)"></div>
+        <div class="option option-5" onclick="selectOption(9, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(9, 10)">next!</button>
+    </div>
+
+    <div class="page question-page" id="page-q10">
+      <div class="question-number">10. <span class="crush-name"></span>님과 나는 미래에 대한 비슷한 가치관을 가지고 있다.</div>
+      <div class="option-container">
+        <div class="option option-1" onclick="selectOption(10, 1)"></div>
+        <div class="option option-2" onclick="selectOption(10, 2)"></div>
+        <div class="option option-3" onclick="selectOption(10, 3)"></div>
+        <div class="option option-4" onclick="selectOption(10, 4)"></div>
+        <div class="option option-5" onclick="selectOption(10, 5)"></div>
+      </div>
+      <button class="next-button" onclick="validateAndNext(10, 'final')">next!</button>
+    </div>
+
+    <!-- Final Input Page -->
+    <div class="page final-page" id="page-final">
+      <div class="input-label">마지막으로 AI에게 더 알려주고 싶은 내용이 있다면 입력해주세요.</div>
+      <textarea class="final-message" id="finalMessage" placeholder="예: 우리는 5년간 같은 학교에 다니고 있고, 최근에 그가 내 생일을 기억했어요." style="text-align: center; margin-left: auto; margin-right: auto;"></textarea>
+      <div class="note">입력하신 내용은 결과와 함께 표시됩니다.</div>
+      <button class="next-button" onclick="submitToGemini()">결과 확인하기</button>
+    </div>
+
+    <!-- Result Page -->
+    <div class="page final-page" id="page-result">
+      <h2><span class="crush-name"></span>님께 고백할 확률</h2>
+      <div class="result-container">
+        <div class="percentage" id="resultPercentage">??%</div>
+        <div id="resultMessage" class="result-message"></div>
+      </div>
+      <div id="loadingIndicator" class="loading" style="display: none;"></div>
+      <button class="next-button" onclick="resetTest()">다시 테스트하기</button>
+    </div>
+  </div>
+</body>
+</html>
