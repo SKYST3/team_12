@@ -72,7 +72,7 @@
 
 | 이름 | Position | GitHub | 이메일 |
 | --- | --- | --- | --- |
-| 김준혁 | 기획, 프론트 | [@dragons1000](https://github.com/dragons1000) | [jihoon9835@gmail.com](mailto:jihoon9835@gmail.com) |
+| 김준혁 | 기획, 프론트 | [@dragons1000](https://github.com/dragons1000) | [dragone1000@korea.ac.kr(malito:dragone1000@korea.ac.kr) |
 | 문규리 | 기획, 프론트 | [@Sooobeo](https://github.com/Sooobeo) | [tengerined4re@gmail.com](mailto:tengerined4re@gmail.com) |
 | 민철홍 | 기획, 디자인 | - | [jacob020827@gmail.com](mailto:jacob020827@gmail.com) |
 | 이준혁 | 기획, 백엔드, 총괄 | [@waterbang12](https://github.com/waterbang12) | [waterbang12@gmail.com](mailto:waterbang12@gmail.com) |
