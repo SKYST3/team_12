@@ -42,11 +42,17 @@
 
 ### 1-1.
 
-- (이미지 첨부)
+- 신해철 님의 '그대에게'에서 영감을 얻은 표지와 문구: 우리 모두의 '그대'는 과연 나에게 마음이 있을까요? 
+
+![image](https://github.com/user-attachments/assets/12d0cf9d-cb28-46bf-a7ca-a224f3ecb2be)
+
 
 ### 1-2.
 
-- 
+- 내 마음속에 있는 사람의 이름, 혹은 나만 알아볼 수 있는 별칭을 입력하면, 이후 질문에 반영되어 나타납니다!
+
+![image](https://github.com/user-attachments/assets/0163b1e2-b878-4d1b-98ae-a0b53af6270c)
+
 
 ### 2-1.
 
