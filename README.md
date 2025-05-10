@@ -54,6 +54,13 @@
 ![image](https://github.com/user-attachments/assets/0163b1e2-b878-4d1b-98ae-a0b53af6270c)
 
 
+### 1-3. 
+
+- 이후 20개의 문항 중 긍정문항, 부정문항 각 5문항 총 10개의 문항 무작위 추출된 설문 문항에 응답하며, 현재 내가 처한 상황에 대해 스스로 알아가는 시간을 가집니다!
+
+![image](https://github.com/user-attachments/assets/aa5f97fa-b8da-4f5d-b2d2-7ead648a28f2)
+
+
 ### 2-1.
 
 - 설문 응답 완료 후 AI에게 마지막으로 남기는 한 마디! 
