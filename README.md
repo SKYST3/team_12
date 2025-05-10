@@ -7,7 +7,7 @@
 - **프로젝트 한 줄 설명**
 
 ’그 사람은 나에게 고백을 할까, 말까?’, 체계적이면서도 따뜻한 고백 확률 계산기 
-**러브-브레스 로봇 (Love-Breath Robot) (보류)**
+**러브-테스트 로봇 (Love-test Robot) **
 - **기획 의도**
 
 신해철의 ‘그대에게’는 강렬한 멜로디와 진심 어린 가사로 청춘의 **도전**을 떠올리게 했습니다. 팀원 모두가 공통적으로 연상한 이 감정에서, 우리는 ‘그대’라는 단어가 단순한 누군가가 아니라 **각자에게 중요한 무언가**를 의미할 수 있다는 생각을 하게 되었습니다.
@@ -42,11 +42,24 @@
 
 ### 1-1.
 
-- (이미지 첨부)
+- 신해철 님의 '그대에게'에서 영감을 얻은 표지와 문구: 우리 모두의 '그대'는 과연 나에게 마음이 있을까요? 
+
+![image](https://github.com/user-attachments/assets/0163b1e2-b878-4d1b-98ae-a0b53af6270c)
+
 
 ### 1-2.
 
-- 
+- 내 마음속에 있는 사람의 이름, 혹은 나만 알아볼 수 있는 별칭을 입력하면, 이후 질문에 반영되어 나타납니다!
+
+![image](https://github.com/user-attachments/assets/12d0cf9d-cb28-46bf-a7ca-a224f3ecb2be)
+
+
+### 1-3. 
+
+- 이후 20개의 문항 중 긍정문항, 부정문항 각 5문항 총 10개의 문항 무작위 추출된 설문 문항에 응답하며, 현재 내가 처한 상황에 대해 스스로 알아가는 시간을 가집니다!
+
+![image](https://github.com/user-attachments/assets/aa5f97fa-b8da-4f5d-b2d2-7ead648a28f2)
+
 
 ### 2-1.
 
@@ -66,7 +79,7 @@
 
 | 이름 | Position | GitHub | 이메일 |
 | --- | --- | --- | --- |
-| 김준혁 | 기획, 프론트 | [@dragons1000](https://github.com/dragons1000) | [jihoon9835@gmail.com](mailto:jihoon9835@gmail.com) |
+| 김준혁 | 기획, 프론트 | [@dragons1000](https://github.com/dragons1000) | [dragone1000@korea.ac.kr(malito:dragone1000@korea.ac.kr) |
 | 문규리 | 기획, 프론트 | [@Sooobeo](https://github.com/Sooobeo) | [tengerined4re@gmail.com](mailto:tengerined4re@gmail.com) |
 | 민철홍 | 기획, 디자인 | - | [jacob020827@gmail.com](mailto:jacob020827@gmail.com) |
 | 이준혁 | 기획, 백엔드, 총괄 | [@waterbang12](https://github.com/waterbang12) | [waterbang12@gmail.com](mailto:waterbang12@gmail.com) |
