@@ -227,6 +227,7 @@ body {
   max-height: 200px;
   overflow-y: auto;
   line-height: 1.5;
+  color:#000004;
 }
 
 /* Loading spinner */
@@ -418,7 +419,7 @@ input[type="number"] {
 
 /* 결과 페이지의 퍼센트 표시 스타일 */
 #page-result .percentage {
-  color: #E6E6FA;
+  color: #000004;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
   position: relative;
   z-index: 2;
